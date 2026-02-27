@@ -99,3 +99,7 @@ func parseGet(r io.Reader) (*CommandGet, error) {
 
 	return c, nil
 }
+
+func WriteInt32(w io.Writer, v int32) {
+	binary.Write(w, binary.LittleEndian, v)
+}
