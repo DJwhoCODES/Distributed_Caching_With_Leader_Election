@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"distributed_caching_with_leader_election/server"
+	"log"
+)
 
 func main() {
-	fmt.Println("Hellllooo World!")
+	s := server.New(":9000")
+	log.Fatal(s.Start())
 }

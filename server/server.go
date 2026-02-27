@@ -49,7 +49,7 @@ func (s *Server) handleConn(conn net.Conn) {
 
 		switch cmd := cmdAny.(type) {
 		case *protocol.CommandSet:
-			s.store.Set(string(cmd.Key), cmd.Value)
+			s.store.Set(string(cmd.Key), cmd.Value, int64(cmd.TTL))
 			s.writeOK(conn)
 
 		case *protocol.CommandGet:
